@@ -1,892 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <!-- SEO META TAGS -->
-    <meta name="description" content="Perpetual Ireri – IT Infrastructure & Digital Innovation Specialist in Nairobi. Secure networks, web development, UX/UI, digital marketing for startups and corporate clients.">
-    <meta name="keywords" content="IT infrastructure, network security, web development, UX/UI design, digital marketing, Nairobi, Kenya, perpetual ireri, cloud integration, WordPress developer">
-    <meta name="author" content="Perpetual Ireri">
-    <meta property="og:title" content="Perpetual Ireri | IT Infrastructure & Digital Innovation Specialist">
-    <meta property="og:description" content="Secure networks, scalable web platforms, high-converting digital systems. IT consulting and development for startups to enterprise.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://perpetual-ireri.com">
-    <meta property="og:image" content="https://perpetual-ireri.com/og-image.jpg"> <!-- replace with actual URL -->
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Perpetual Ireri | IT Infrastructure & Digital Innovation Specialist</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perpetual Ireri | IT & Digital Solutions Specialist</title>
 
-    <!-- FAVICON (modern emoji-based, works in all browsers) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%234169E1'>⚙️</text></svg>">
-    <!-- fallback for older browsers (optional) -->
-    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBACAAEAAQCwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAA==">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Fonts + FA -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <style>
-        /* ===== DARK THEME (refined) ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
 
-        :root {
-            --royal: #4169E1;
-            --dark-bg: #0b1120;
-            --dark-surface: #111827;
-            --card-bg: #1e293b;
-            --text-light: #f1f5f9;
-            --text-muted: #94a3b8;
-            --border-glow: rgba(65, 105, 225, 0.3);
-            --toast-success: #10b981;
-            --toast-error: #ef4444;
-        }
+/* ===== GLOBAL STYLES ===== */
+:root{
+    --primary: #4169E1; /* Royal Blue */
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --accent: #1e3a8a;
+}
 
-        body {
-            background: var(--dark-bg);
-            color: var(--text-light);
-            scroll-behavior: smooth;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        /* ===== PRELOADER ===== */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--dark-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        #preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .loader {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-        .loader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid rgba(65, 105, 225, 0.2);
-            border-top-color: var(--royal);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        .loader-text {
-            color: var(--royal);
-            font-weight: 600;
-            letter-spacing: 2px;
-            font-size: 1.1rem;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+body{
+    background: var(--light);
+    color:#333;
+    scroll-behavior: smooth;
+}
 
-        /* ===== HEADER ===== */
-        header {
-            position: fixed;
-            width: 100%;
-            background: rgba(11, 17, 32, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            z-index: 1000;
-        }
+/* ===== NAVBAR ===== */
+header{
+    position:fixed;
+    width:100%;
+    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    z-index:1000;
+}
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-        }
+.nav-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+}
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: var(--royal);
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo-icon {
-            font-size: 1.8rem;
-            line-height: 1;
-        }
+.logo{
+    font-weight:700;
+    font-size:1.4rem;
+    color:var(--primary);
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+nav ul{
+    display:flex;
+    list-style:none;
+}
 
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-            font-size: 1rem;
-        }
+nav ul li{
+    margin-left:30px;
+}
 
-        nav ul li a:hover {
-            color: var(--royal);
-        }
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
 
-        .menu-toggle {
-            display: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: white;
-        }
+nav ul li a:hover{
+    color:var(--primary);
+}
 
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, #0b1120, #1a2a4e, #0b1120);
-            padding: 6rem 20px 4rem;
-        }
+/* Mobile Menu */
+.menu-toggle{
+    display:none;
+    font-size:1.8rem;
+    cursor:pointer;
+}
 
-        .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color:white;
+    padding:0 20px;
+}
 
-        .hero-content p {
-            max-width: 750px;
-            margin: 0 auto 2rem;
-            color: #cbd5e1;
-            font-size: 1.2rem;
-        }
+.hero h1{
+    font-size:2.8rem;
+    margin-bottom:20px;
+}
 
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
+.hero p{
+    font-size:1.1rem;
+    margin-bottom:25px;
+}
 
-        .btn {
-            padding: 12px 30px;
-            border-radius: 40px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.25s;
-            font-size: 1rem;
-            border: 2px solid transparent;
-        }
+.btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+    margin:10px;
+}
 
-        .btn-primary {
-            background: var(--royal);
-            color: white;
-        }
+.btn-primary{
+    background:white;
+    color:var(--primary);
+}
 
-        .btn-primary:hover {
-            background: #2a4fdb;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px var(--border-glow);
-        }
+.btn-primary:hover{
+    background:#ddd;
+}
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--royal);
-            color: var(--royal);
-        }
+.btn-outline{
+    background:transparent;
+    border:2px solid white;
+    color:white;
+}
 
-        .btn-outline:hover {
-            background: var(--royal);
-            color: white;
-            transform: translateY(-3px);
-        }
+.btn-outline:hover{
+    background:white;
+    color:var(--primary);
+}
 
-        /* ===== SECTIONS ===== */
-        section {
-            padding: 90px 8%;
-        }
+/* ===== SECTIONS ===== */
+section{
+    padding:80px 10%;
+}
 
-        .section-title {
-            text-align: center;
-            font-size: 2.4rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            color: var(--royal);
-            position: relative;
-        }
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2rem;
+    color:var(--primary);
+}
 
-        .section-title::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: var(--royal);
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
+/* ABOUT */
+.about{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:40px;
+}
 
-        /* ===== ABOUT ===== */
-        .about-grid {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 4rem;
-        }
+.about img{
+    width:280px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
 
-        .about-img {
-            flex: 1 1 260px;
-            text-align: center;
-        }
+.about-text{
+    flex:1;
+}
 
-        .about-img img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 30px;
-            box-shadow: 0 25px 40px rgba(0,0,0,0.6);
-            border: 3px solid var(--royal);
-        }
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
 
-        .about-text {
-            flex: 2 1 400px;
-        }
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
 
-        .about-text p {
-            margin-bottom: 1.2rem;
-            color: #e2e8f0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
+.card:hover{
+    transform:translateY(-10px);
+}
 
-        /* ===== SERVICES ===== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+.card h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
 
-        .service-card {
-            background: var(--dark-surface);
-            padding: 2.2rem 1.5rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.03);
-            transition: 0.3s;
-            text-align: center;
-        }
+/* COUNTERS */
+.counters{
+    display:flex;
+    justify-content:space-around;
+    text-align:center;
+}
 
-        .service-card:hover {
-            border-color: var(--royal);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px -10px #1e3a8a40;
-        }
+.counter h2{
+    color:var(--primary);
+    font-size:2.2rem;
+}
 
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--royal);
-            margin-bottom: 1rem;
-        }
+/* CONTACT */
+.contact{
+    text-align:center;
+}
 
-        .service-card h3 {
-            color: var(--royal);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+.contact a{
+    color:var(--primary);
+    text-decoration:none;
+    font-weight:600;
+}
 
-        .service-card p {
-            color: var(--text-muted);
-        }
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    background:var(--dark);
+    color:white;
+}
 
-        /* ===== PRICING ===== (condensed for brevity, but fully functional) */
-        .pricing-category { margin-bottom: 4rem; }
-        .pricing-category h3 { font-size: 2rem; color: white; margin-bottom: 2rem; border-left: 6px solid var(--royal); padding-left: 1rem; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
-        .pricing-card { background: var(--card-bg); border-radius: 28px; padding: 2rem 1.5rem; border: 1px solid #2d3b52; transition: 0.3s; display: flex; flex-direction: column; }
-        .pricing-card:hover { border-color: var(--royal); transform: translateY(-6px); box-shadow: 0 20px 25px -12px #1e3a8a; }
-        .pricing-tier { color: var(--royal); font-weight: 700; font-size: 1.3rem; }
-        .pricing-price { font-size: 2rem; font-weight: 600; margin: 1rem 0; color: white; }
-        .pricing-features { list-style: none; margin: 1.5rem 0; flex-grow: 1; }
-        .pricing-features li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; color: #d1dbe9; }
-        .pricing-features i { color: var(--royal); width: 20px; }
-        .pricing-note { color: var(--text-muted); font-size: 0.9rem; border-top: 1px dashed #334155; padding-top: 1rem; }
+/* ===== ANIMATION ===== */
+.fade-in{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
 
-        /* ===== SKILLS ===== */
-        .skills-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .skill-cat h4 { color: var(--royal); font-size: 1.3rem; margin-bottom: 1rem; }
-        .skill-items { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-        .skill-tag { background: #1f2a3c; padding: 0.5rem 1.2rem; border-radius: 40px; font-size: 0.9rem; color: #cbd5e1; border: 1px solid #334155; }
+.fade-in.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
-        /* ===== PORTFOLIO ===== */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .project-card { background: var(--card-bg); padding: 2rem; border-radius: 24px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.02); }
-        .project-card:hover { transform: translateY(-10px); border-color: var(--royal); }
-        .project-card h3 { color: var(--royal); font-size: 1.5rem; }
-        .project-badge { font-size: 0.8rem; background: #2d3b52; display: inline-block; padding: 4px 12px; border-radius: 30px; margin: 8px 0; color: #b9c9f0; }
-        .project-link { color: var(--royal); text-decoration: none; font-weight: 500; }
-        .in-progress { color: #f59e0b; font-style: italic; }
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
 
-        /* ===== WHY WORK ===== */
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .why-item { background: var(--dark-surface); padding: 2rem; border-radius: 24px; text-align: center; border: 1px solid #26344b; }
-        .why-item i { font-size: 2.8rem; color: var(--royal); margin-bottom: 1rem; }
+    nav ul{
+        position:absolute;
+        top:70px;
+        right:0;
+        background:white;
+        flex-direction:column;
+        width:200px;
+        display:none;
+        padding:20px;
+    }
 
-        /* ===== TESTIMONIAL CAROUSEL ===== */
-        .testimonial-carousel {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 40px;
-            background: var(--dark-surface);
-            padding: 2rem 1rem;
-            border: 1px solid #2d3b52;
-        }
-        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .testimonial-card { flex: 0 0 100%; padding: 1.5rem 2.5rem; box-sizing: border-box; text-align: center; }
-        .testimonial-card i.fa-quote-left { color: var(--royal); font-size: 2rem; opacity: 0.4; }
-        .testimonial-text { font-size: 1.1rem; line-height: 1.7; color: #e2e8f0; margin: 1rem 0; }
-        .stars { color: #fbbf24; margin: 0.5rem 0; }
-        .carousel-dots { display: flex; justify-content: center; gap: 12px; margin-top: 1.5rem; }
-        .dot { width: 12px; height: 12px; border-radius: 50%; background: #4b5563; cursor: pointer; transition: 0.2s; }
-        .dot.active { background: var(--royal); transform: scale(1.3); }
+    nav ul.active{
+        display:flex;
+    }
 
-        /* ===== COUNTERS ===== */
-        .counters { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2.5rem; background: var(--dark-surface); padding: 3rem 2rem; border-radius: 60px; margin: 2rem 0 0; }
-        .counter-number { font-size: 3rem; font-weight: 700; color: var(--royal); line-height: 1.2; }
-        .counter-label { text-transform: uppercase; letter-spacing: 2px; color: #a0b3d9; }
+    nav ul li{
+        margin:15px 0;
+    }
 
-        /* ===== CONTACT (fully responsive) ===== */
-        .contact-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            background: var(--dark-surface);
-            border-radius: 50px;
-            padding: 3rem;
-            border: 1px solid #1e2b3f;
-        }
-        .contact-info {
-            flex: 1 1 280px;
-            min-width: 260px;
-        }
-        .contact-info h3 {
-            color: var(--royal);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-        .contact-detail {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            word-break: break-word;
-        }
-        .contact-detail i {
-            width: 30px;
-            color: var(--royal);
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-        .contact-detail a, .contact-detail span {
-            color: white;
-            text-decoration: none;
-        }
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        .social-links a {
-            background: #1f2a3c;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            transition: 0.2s;
-            border: 1px solid #334155;
-        }
-        .social-links a:hover {
-            background: var(--royal);
-        }
-        .contact-form {
-            flex: 2 1 400px;
-            min-width: 280px;
-        }
-        .input-group {
-            margin-bottom: 1.2rem;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 15px 20px;
-            background: #1f2a3c;
-            border: none;
-            border-radius: 50px;
-            color: white;
-            font-size: 1rem;
-            border: 1px solid transparent;
-        }
-        textarea {
-            border-radius: 30px;
-            min-height: 120px;
-            resize: vertical;
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--royal);
-            background: #25334a;
-        }
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            border-radius: 60px;
-            background: var(--royal);
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-        .submit-btn:hover {
-            background: #3157d6;
-        }
+    .menu-toggle{
+        display:block;
+    }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #0a0f1a;
-            color: #94a3b8;
-            border-top: 1px solid #1e2a3a;
-        }
+    .hero h1{
+        font-size:2rem;
+    }
 
-        /* ===== TOAST NOTIFICATION ===== */
-        .toast-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 99999;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            pointer-events: none;
-        }
+    .about{
+        flex-direction:column;
+        text-align:center;
+    }
 
-        .toast {
-            min-width: 280px;
-            max-width: 350px;
-            background: var(--dark-surface);
-            border-left: 4px solid;
-            border-radius: 8px;
-            padding: 16px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transform: translateX(120%);
-            animation: slideIn 0.3s forwards, fadeOut 0.5s 3s forwards;
-            pointer-events: auto;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+    .counters{
+        flex-direction:column;
+        gap:30px;
+    }
+}
 
-        .toast.success {
-            border-left-color: var(--toast-success);
-        }
-        .toast.error {
-            border-left-color: var(--toast-error);
-        }
-
-        .toast i {
-            font-size: 1.5rem;
-        }
-        .toast.success i {
-            color: var(--toast-success);
-        }
-        .toast.error i {
-            color: var(--toast-error);
-        }
-
-        .toast-message {
-            flex: 1;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        @keyframes slideIn {
-            to { transform: translateX(0); }
-        }
-        @keyframes fadeOut {
-            to { opacity: 0; }
-        }
-
-        /* ===== ANIMATIONS ===== */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: 1s ease; }
-        .fade-in.show { opacity: 1; transform: translateY(0); }
-
-        /* ===== RESPONSIVE TWEAKS ===== */
-        @media (max-width: 850px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 75px;
-                right: 8%;
-                background: var(--dark-surface);
-                width: 240px;
-                padding: 2rem;
-                border-radius: 20px;
-                gap: 1.2rem;
-                border: 1px solid #253549;
-            }
-            nav ul.active { display: flex; }
-            .menu-toggle { display: block; }
-
-            .about-grid { flex-direction: column; text-align: center; }
-
-            /* contact section mobile optimization */
-            .contact-wrapper {
-                padding: 2rem 1.5rem;
-                gap: 1.8rem;
-                border-radius: 40px;
-            }
-            .contact-info h3 { font-size: 1.6rem; }
-            .contact-detail { font-size: 1rem; }
-            .social-links a { width: 44px; height: 44px; font-size: 1.3rem; }
-            input, textarea { padding: 14px 18px; }
-
-            .counters { flex-direction: column; align-items: center; border-radius: 40px; }
-            .testimonial-card { padding: 1.5rem 1rem; }
-        }
-
-        @media (max-width: 480px) {
-            section { padding: 70px 5%; }
-            .contact-wrapper { padding: 1.8rem 1.2rem; }
-            .contact-detail { flex-wrap: wrap; }
-            .btn { padding: 10px 20px; font-size: 0.95rem; }
-        }
-    </style>
+</style>
 </head>
+
 <body>
-    <!-- PRELOADER (now with gear icon) -->
-    <div id="preloader">
-        <div class="loader">
-            <div class="loader-spinner"></div>
-            <div class="loader-text">⚙️ Perpetual Ireri</div>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">Ireri.</div>
+        <div class="menu-toggle">&#9776;</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div>
+        <h1 id="typing"></h1>
+        <p>Secure Networks. Scalable Web Platforms. High-Converting Digital Systems.</p>
+        <button class="btn btn-primary">Request Consultation</button>
+        <button class="btn btn-outline">View Portfolio</button>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title fade-in">About Me</h2>
+    <div class="about fade-in">
+        <img src="assets/Ireri.jpeg" alt="Ireri">
+        <div class="about-text">
+            <p>
+                I am a multidisciplinary IT & Digital Solutions Specialist with expertise in infrastructure, networking, web development, UX/UI design, and digital marketing.
+            </p>
+            <br>
+            <p>
+                I help startups, SMEs, and corporate organizations build secure IT environments, scalable digital platforms, and strategic marketing systems that drive measurable business growth.
+            </p>
         </div>
     </div>
+</section>
 
-    <!-- TOAST CONTAINER -->
-    <div class="toast-container" id="toastContainer"></div>
-
-    <header>
-        <div class="nav-container">
-            <!-- Logo with consistent gear icon -->
-            <div class="logo">
-                <span class="logo-icon">⚙️</span> Perpetual Ireri
-            </div>
-            <div class="menu-toggle" id="menuToggle">&#9776;</div>
-            <nav>
-                <ul id="navList">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+<!-- SERVICES -->
+<section id="services">
+    <h2 class="section-title fade-in">Services</h2>
+    <div class="services fade-in">
+        <div class="card">
+            <h3>IT Infrastructure</h3>
+            <p>Network setup, cybersecurity, cloud deployment, system optimization.</p>
         </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 id="typingHead"></h1>
-            <p>Secure Networks. Scalable Web Platforms. High-Converting Digital Systems.</p>
-            <div class="btn-group">
-                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Consultation</button>
-                <button class="btn btn-outline" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View Portfolio</button>
-            </div>
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>Responsive websites, business platforms, custom web applications.</p>
         </div>
-    </section>
-
-    <!-- ABOUT (updated three paragraphs) -->
-    <section id="about" class="fade-in">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-            <div class="about-img">
-                <img src="assets/Ireri.jpeg" alt="Perpetual Ireri">
-            </div>
-            <div class="about-text">
-                <p>I am a multidisciplinary <strong>IT & Digital Solutions Specialist</strong> with expertise in infrastructure, networking, web development, UX/UI design, and digital marketing. With a strong technical foundation and creative problem-solving, I design and deploy scalable systems that improve operational efficiency, user experience, and revenue growth.</p>
-                <p>I work with startups, SMEs, corporate teams, entrepreneurs, and agencies. My focus is simple: build secure systems, create seamless experiences, and deliver measurable impact.</p>
-                <p>My approach merges secure infrastructure with human‑centered design: I don't just make things work — I make them work fast, safe, and intuitively. Whether it's deploying cloud networks or developing high‑conversion booking platforms, I deliver measurable results.</p>
-            </div>
+        <div class="card">
+            <h3>UX/UI Design</h3>
+            <p>Modern user experiences that improve engagement and conversions.</p>
         </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="fade-in">
-        <h2 class="section-title">Core Services</h2>
-        <div class="services-grid">
-            <div class="service-card"><i class="fas fa-network-wired"></i><h3>IT Infrastructure</h3><p>Network architecture, server deployment, cloud integration, cybersecurity & audits.</p></div>
-            <div class="service-card"><i class="fas fa-laptop-code"></i><h3>Web Development</h3><p>Business websites, e‑commerce, portals, custom web apps, CMS & API integration.</p></div>
-            <div class="service-card"><i class="fas fa-chart-line"></i><h3>Digital Marketing</h3><p>SEO, social media strategy, paid ads, sales funnels, conversion optimization.</p></div>
-            <div class="service-card"><i class="fas fa-paint-brush"></i><h3>UX/UI & Graphic Design</h3><p>Wireframing, prototyping, design systems, branding & marketing creatives.</p></div>
+        <div class="card">
+            <h3>Digital Marketing</h3>
+            <p>SEO, paid ads, analytics & growth strategy systems.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-        <!-- PRICING (summary, full detailed kept) -->
-    <section id="pricing" class="fade-in">
-        <h2 class="section-title">Investment — Starting From</h2>
-        <!-- Web Development -->
-        <div class="pricing-category"><h3><i class="fas fa-globe" style="margin-right:10px;"></i> Web Design & Development</h3><div class="pricing-grid">
-            <div class="pricing-card"><div class="pricing-tier">🟢 Starter</div><div class="pricing-price">KES 35K <small>-60K</small></div><ul class="pricing-features"><li><i class="fas fa-check"></i> Up to 5 pages</li><li><i class="fas fa-check"></i> Responsive + basic SEO</li><li><i class="fas fa-check"></i> Contact form, speed opt.</li><li>1 month support</li></ul><div class="pricing-note">2‑3 weeks</div></div>
-            <div class="pricing-card"><div class="pricing-tier">🔵 Growth</div><div class="pricing-price">KES 80K <small>-150K</small></div><ul class="pricing-features"><li><i class="fas fa-check"></i> Up to 10 pages, custom UI/UX</li><li><i class="fas fa-check"></i> CMS, blog, analytics</li><li>SEO & basic security</li><li>2 months support</li></ul><div class="pricing-note">3‑5 weeks</div></div>
-            <div class="pricing-card"><div class="pricing-tier">🟣 Corporate</div><div class="pricing-price">KES 200K+</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Custom architecture</li><li><i class="fas fa-check"></i> Web app / API integrations</li><li>Advanced security, dashboard</li></ul><div class="pricing-note">Custom quote</div></div>
-        </div></div>
-        <!-- IT Infrastructure -->
-        <div class="pricing-category"><h3><i class="fas fa-server"></i> IT Infrastructure & Networking</h3><div class="pricing-grid">
-            <div class="pricing-card"><div class="pricing-tier">🟢 Small Office</div><div class="pricing-price">KES 40K+</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Network config, router/switch</li><li>File sharing, basic cyber</li></ul></div>
-            <div class="pricing-card"><div class="pricing-tier">🔵 Business Infra</div><div class="pricing-price">KES 120K+</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Server deployment, firewall</li><li>Cloud integration, docs</li></ul></div>
-            <div class="pricing-card"><div class="pricing-tier">🟣 Enterprise</div><div class="pricing-price">Custom</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Audit, strategy</li><li>Retainer 50K‑150K/mo</li></ul></div>
-        </div></div>
-        <!-- Marketing & UX/UI brief (truncated for length, but full in code) -->
-        <p style="text-align:center; color:var(--text-muted); margin-top:1rem;">*50% deposit required. Maintenance retainers available.</p>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="fade-in"><h2 class="section-title">Technologies</h2><div class="skills-section"><div class="skill-cat"><h4>Languages</h4><div class="skill-items"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span><span class="skill-tag">PHP</span><span class="skill-tag">Python</span></div></div><div class="skill-cat"><h4>Frameworks</h4><div class="skill-items"><span class="skill-tag">React</span><span class="skill-tag">Angular</span><span class="skill-tag">Django</span><span class="skill-tag">Laravel</span></div></div><div class="skill-cat"><h4>CMS</h4><div class="skill-items"><span class="skill-tag">WordPress</span><span class="skill-tag">WooCommerce</span></div></div><div class="skill-cat"><h4>Tools</h4><div class="skill-items"><span class="skill-tag">Figma</span><span class="skill-tag">Git</span><span class="skill-tag">cPanel</span></div></div></div></section>
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="fade-in">
-        <h2 class="section-title">Selected Projects</h2>
-        <div class="portfolio-grid">
-            <div class="project-card"><h3>Solo African Safaris</h3><div class="project-badge">WordPress Dev</div><p>Tourism platform with real‑time safari updates.</p><a href="https://soloafricansafaris.com" target="_blank" class="project-link">Visit →</a></div>
-            <div class="project-card"><h3>Perpetual Serene Travel</h3><div class="project-badge">Booking System</div><p>Trip scheduling & e‑commerce (in progress).</p><span class="in-progress"><i class="fas fa-spinner"></i> In progress</span></div>
-            <div class="project-card"><h3>Satima Airbnb</h3><div class="project-badge">Lead UI/UX</div><p>High‑converting property listing.</p><a href="https://satima.co.ke" target="_blank" class="project-link">Visit →</a></div>
-            <div class="project-card"><h3>Spa Booking & Review</h3><div class="project-badge">Architect</div><p>Online booking, reviews (dev).</p><span class="in-progress"><i class="fas fa-spinner"></i> In progress</span></div>
+<!-- COUNTERS -->
+<section>
+    <div class="counters fade-in">
+        <div class="counter">
+            <h2 class="count" data-target="50">0</h2>
+            <p>Projects Completed</p>
         </div>
-    </section>
-
-    <!-- WHY WORK -->
-    <section class="fade-in"><h2 class="section-title">Why Work With Me</h2><div class="why-grid"><div class="why-item"><i class="fas fa-microchip"></i><h4>Technical + Creative</h4></div><div class="why-item"><i class="fas fa-bullseye"></i><h4>Business‑focused</h4></div><div class="why-item"><i class="fas fa-shield-alt"></i><h4>Secure & Scalable</h4></div><div class="why-item"><i class="fas fa-comments"></i><h4>Reliable</h4></div></div></section>
-
-    <!-- TESTIMONIAL CAROUSEL (6 reviews) -->
-    <section id="testimonials" class="fade-in">
-        <h2 class="section-title">Client Reviews</h2>
-        <div class="testimonial-carousel">
-            <div class="carousel-track" id="carouselTrack">
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="testimonial-text">"Perpetual redesigned our entire network infrastructure. Zero downtime, seamless cloud migration."</div><div class="testimonial-author">— Evans M., CTO, Mzuri Logistics</div><div class="stars"><small>5.0</small></div></div>
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="testimonial-text">"The e‑commerce site she built increased conversions by 40%. Great UX and speed."</div><div class="testimonial-author">— Wanjiru K., Founder, Serene Store</div><div class="stars"><small>5.0</small></div></div>
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="testimonial-text">"Very responsive, deep technical knowledge. Set up office network & security fast."</div><div class="testimonial-author">— Alex O., Edge Advisors</div><div class="stars"><small>4.9</small></div></div>
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="testimonial-text">"Spa booking system is elegant and easy. Can’t wait for the launch."</div><div class="testimonial-author">— Lucy N., Serenity Spa</div><div class="stars"><small>4.8</small></div></div>
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span></div><div class="testimonial-text">"Digital marketing strategy doubled our leads in two months."</div><div class="testimonial-author">— Brian T., Greenfield Ltd</div><div class="stars"><small>4.7</small></div></div>
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="testimonial-text">"She delivers peace of mind. Our website hasn’t had a single issue."</div><div class="testimonial-author">— Fatima H., Bidii Africa</div><div class="stars"><small>5.0</small></div></div>
-            </div>
-            <div class="carousel-dots" id="carouselDots"></div>
+        <div class="counter">
+            <h2 class="count" data-target="30">0</h2>
+            <p>Happy Clients</p>
         </div>
-    </section>
-
-    <!-- COUNTERS -->
-    <section class="fade-in"><div class="counters"><div class="counter-item"><span class="counter-number count" data-target="50">0</span><div class="counter-label">Projects</div></div><div class="counter-item"><span class="counter-number count" data-target="30">0</span><div class="counter-label">Happy clients</div></div><div class="counter-item"><span class="counter-number count" data-target="5">0</span><div class="counter-label">Years</div></div></div></section>
-
-    <!-- CONTACT (fully responsive) -->
-    <section id="contact" class="fade-in">
-        <h2 class="section-title">Let’s Build Something Scalable</h2>
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Get in touch</h3>
-                <div class="contact-detail"><i class="fas fa-map-pin"></i><a href="https://maps.google.com" target="_blank">Spur Mall, Ruiru</a></div>
-                <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:perpetualwairimu74@gmail.com">perpetualwairimu74@gmail.com</a></div>
-                <div class="contact-detail"><i class="fas fa-phone-alt"></i> <a href="tel:+254758502237">+254 758 502237</a></div>
-                <div class="contact-detail"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/254758502237">WhatsApp</a></div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/perpetual-ireri-6b8aab247" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/perpetual-ireri" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form id="contact-form">
-                    <div class="input-group"><input type="text" name="name" placeholder="Your name" required></div>
-                    <div class="input-group"><input type="email" name="email" placeholder="Email address" required></div>
-                    <!-- Subject / Title field added to support {{title}} in auto-reply -->
-                    <div class="input-group"><input type="text" name="title" placeholder="Subject / Title"></div>
-                    <div class="input-group"><textarea name="message" placeholder="Tell me about your project..." required></textarea></div>
-                    <button type="submit" class="submit-btn">Send message</button>
-                </form>
-            </div>
+        <div class="counter">
+            <h2 class="count" data-target="5">0</h2>
+            <p>Years Experience</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>© 2026 Perpetual Ireri — IT Infrastructure & Digital Innovation Specialist</footer>
+<!-- CONTACT -->
+<section id="contact" class="contact fade-in">
+    <h2 class="section-title">Let's Work Together</h2>
+    <p>Email: <a href="mailto:perpetualwairimu74@gmail.com">perpetualwairimu74@gmail.com</a></p>
+</section>
 
-    <script>
-        (function() {
-            // ========== EMAILJS CONFIGURATION ==========
-            // Public key (from your account)
-            emailjs.init("z-kSxBJKHkJLcTpZt");
+<footer>
+    © 2026 Ireri | IT & Digital Innovation
+</footer>
 
-            // Service ID (you already created)
-            const SERVICE_ID = "service_uhukihv";
+<script>
 
-            // ===== TEMPLATE IDS =====
-            // Template for notification to you (the site owner) - you provided this ID
-            const OWNER_TEMPLATE_ID = "template_qwm7xni";
-            
-            // Template for auto-reply to the person who filled the form
-            // IMPORTANT: You need to create this template in your EmailJS dashboard.
-            // After creating it, replace the placeholder below with its ID.
-            const AUTO_REPLY_TEMPLATE_ID = "template_i5qyw05"; // <-- REPLACE THIS WITH YOUR AUTO-REPLY TEMPLATE ID
+/* MOBILE NAV */
+const toggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector("nav ul");
 
-            // Toast notification function
-            function showToast(message, type = 'success') {
-                const container = document.getElementById('toastContainer');
-                const toast = document.createElement('div');
-                toast.className = `toast ${type}`;
-                toast.innerHTML = `
-                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-                    <div class="toast-message">${message}</div>
-                `;
-                container.appendChild(toast);
+toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
 
-                // Remove toast after animation
-                setTimeout(() => {
-                    toast.remove();
-                }, 3500);
-            }
+/* SCROLL ANIMATION */
+const faders = document.querySelectorAll(".fade-in");
 
-            // Mobile nav
-            const toggle = document.getElementById('menuToggle');
-            const navUl = document.getElementById('navList');
-            toggle.addEventListener('click', () => navUl.classList.toggle('active'));
+window.addEventListener("scroll", () => {
+    faders.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        if(position < window.innerHeight - 100){
+            el.classList.add("show");
+        }
+    });
+});
 
-            // Fade-in
-            const faders = document.querySelectorAll('.fade-in');
-            function fadeCheck() { faders.forEach(el => { const rect = el.getBoundingClientRect().top; if (rect < window.innerHeight - 80) el.classList.add('show'); }); }
-            window.addEventListener('scroll', fadeCheck);
-            window.addEventListener('load', fadeCheck);
+/* TYPING EFFECT */
+const text = "Transforming Businesses Through IT Infrastructure & Digital Innovation";
+let index = 0;
 
-            // Typing
-            const fullText = "Transforming Businesses Through IT Infrastructure & Digital Innovation";
-            let i = 0;
-            function typeWriter() { if (i < fullText.length) { document.getElementById('typingHead').innerHTML += fullText.charAt(i); i++; setTimeout(typeWriter, 45); } }
-            
-            // Counters
-            const counters = document.querySelectorAll('.count');
-            const startCounting = () => { counters.forEach(counter => { const target = +counter.getAttribute('data-target'); let current = 0; const update = () => { current += Math.ceil(target / 30); if (current < target) { counter.innerText = current; requestAnimationFrame(update); } else counter.innerText = target; }; update(); }); };
-            const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { startCounting(); observer.unobserve(entry.target); } }); }, { threshold: 0.5 });
-            const counterSection = document.querySelector('.counters');
-            if (counterSection) observer.observe(counterSection);
+function typeEffect(){
+    if(index < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 40);
+    }
+}
 
-            // Carousel
-            const track = document.getElementById('carouselTrack');
-            const dotsContainer = document.getElementById('carouselDots');
-            const cards = Array.from(document.querySelectorAll('.testimonial-card'));
-            let currentIndex = 0;
-            const totalSlides = cards.length;
-            let interval;
-            cards.forEach((_, idx) => {
-                const dot = document.createElement('span');
-                dot.classList.add('dot');
-                dot.dataset.index = idx;
-                dot.addEventListener('click', () => { goToSlide(idx); resetInterval(); });
-                dotsContainer.appendChild(dot);
-            });
-            const dots = document.querySelectorAll('.dot');
-            function goToSlide(index) { currentIndex = index; track.style.transform = `translateX(-${currentIndex * 100}%)`; dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex)); }
-            function nextSlide() { currentIndex = (currentIndex + 1) % totalSlides; goToSlide(currentIndex); }
-            function resetInterval() { clearInterval(interval); interval = setInterval(nextSlide, 5000); }
-            goToSlide(0); interval = setInterval(nextSlide, 5000);
-            const carousel = document.querySelector('.testimonial-carousel');
-            carousel.addEventListener('mouseenter', () => clearInterval(interval));
-            carousel.addEventListener('mouseleave', () => { interval = setInterval(nextSlide, 5000); });
+window.onload = typeEffect;
 
-            // Contact form submission
-            document.getElementById('contact-form').addEventListener('submit', function(e) {
-                e.preventDefault();
+/* COUNTER ANIMATION */
+const counters = document.querySelectorAll(".count");
 
-                // Disable button to prevent double submission
-                const submitBtn = this.querySelector('button[type="submit"]');
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
+counters.forEach(counter => {
+    const update = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = target / 100;
 
-                // Send notification to owner (you) using your existing template
-                emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, this)
-                    .then(() => {
-                        // After owner notification succeeds, send auto-reply to the user
-                        // If you haven't created the auto-reply template yet, this will fail.
-                        // You can either create it now or comment out this block until it's ready.
-                        return emailjs.sendForm(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, this);
-                    })
-                    .then(() => {
-                        showToast('Message sent! You will receive a confirmation email.', 'success');
-                        this.reset();
-                    })
-                    .catch((error) => {
-                        console.error('EmailJS error:', error);
-                        // If the error is due to missing auto-reply template, we still notify success to the user
-                        // because the owner notification might have succeeded.
-                        if (error.text && error.text.includes('template ID not found')) {
-                            showToast('Message sent! (Auto-reply not configured yet)', 'success');
-                            this.reset();
-                        } else {
-                            showToast('Failed to send. Please email me directly.', 'error');
-                        }
-                    })
-                    .finally(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Send message';
-                    });
-            });
+        if(count < target){
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(update, 30);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    update();
+});
 
-            // close mobile menu on link click
-            document.querySelectorAll('nav ul li a').forEach(link => link.addEventListener('click', () => navUl.classList.remove('active')));
+</script>
 
-            // ----- PRELOADER HIDE AFTER PAGE LOAD -----
-            window.addEventListener('load', function() {
-                const preloader = document.getElementById('preloader');
-                preloader.classList.add('hidden');
-                typeWriter();
-            });
-
-            // fallback in case load already fired
-            if (document.readyState === 'complete') {
-                document.getElementById('preloader').classList.add('hidden');
-                typeWriter();
-            }
-        })();
-    </script>
-    <!-- 
-        INSTRUCTIONS FOR AUTO-REPLY TEMPLATE:
-        1. Go to https://dashboard.emailjs.com/admin/templates
-        2. Create a new template (or duplicate your owner template).
-        3. Set the "To Email" field to {{email}} (so it sends to the person who filled the form).
-        4. Write a friendly thank-you message, using variables like {{name}} and {{message}}.
-        5. Save the template and copy its ID (e.g., template_xxxxxxx).
-        6. Replace "template_auto_reply" in the JavaScript above with that ID.
-    -->
 </body>
 </html>
